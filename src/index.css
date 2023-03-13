@@ -1,4 +1,14 @@
-@import-normalize; /* bring in normalize.css styles */
+html {
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
 body {
   margin: 0;
@@ -13,3 +23,62 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: #a01d1d;
+}
+
+p,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  padding: 10px 0px;
+  margin: 0;
+}
+
+header {
+  border-bottom: 1px solid grey;
+}
+
+main {
+  min-height: 100vh;
+}
+
+img {
+  object-fit: cover;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------------------------------- */
+
+/* img {
+    transition: transform 250ms linear;
+  }
+
+  img:hover {
+    transform: scale(1.02);
+  } */
