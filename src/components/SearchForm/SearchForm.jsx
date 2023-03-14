@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+import { MdImageSearch } from 'react-icons/md';
 import {
   Form,
   SearchFormButton,
@@ -7,15 +9,11 @@ import {
   SearchFormInput,
   FormWrapper,
 } from './SearchForm.styled';
-import { toast } from 'react-toastify';
-import { MdImageSearch } from 'react-icons/md';
 
 export const SearchForm = ({ onSubmit }) => {
   const [inputValue, setInputValue] = useState('');
 
-  const handleInputChange = event => {
-    setInputValue(event.target.value);
-  };
+  const handleInputChange = event => setInputValue(event.target.value);
 
   const handleSubmit = event => {
     event.preventDefault();

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviewsById } from 'services/themoviedb-api';
-import { isEmpty } from 'lodash';
 import {
   ReviewAuthor,
   ReviewContent,
@@ -26,7 +25,7 @@ export const Reviews = () => {
 
   return (
     <>
-      {isEmpty(movieReviews) ? (
+      {!movieReviews.length ? (
         <ReviewText>We don not have any reviews for this movie</ReviewText>
       ) : (
         <ReviewWrapper>

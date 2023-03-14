@@ -3,13 +3,15 @@ import { MenuContainer, MenuItem, StyledLink } from './Header.styled';
 export const Header = () => {
   return (
     <header>
-      <div className="headerContainer">
+      <div>
         <MenuContainer>
           <MenuItem>
-            <StyledLink to="">Home</StyledLink>
+            <StyledLink to="/" end>
+              Home
+            </StyledLink>
           </MenuItem>
           <MenuItem>
-            <StyledLink to="movies">Movies</StyledLink>
+            <StyledLink to="/movies">Movies</StyledLink>
           </MenuItem>
         </MenuContainer>
       </div>

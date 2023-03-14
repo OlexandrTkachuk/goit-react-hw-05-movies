@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getTrendMovies } from 'services/themoviedb-api';
 import { Container } from 'components/Container/Container';
+
 import {
   ImageGalleryList,
   Title,
@@ -12,7 +13,6 @@ import {
 
 export const Home = () => {
   const [trandMovies, setTrandMovies] = useState([]);
-
   const location = useLocation();
 
   useEffect(() => {

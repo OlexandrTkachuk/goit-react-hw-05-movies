@@ -3,6 +3,8 @@ import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import { getMovieByName } from 'services/themoviedb-api';
 import { Container } from 'components/Container/Container';
 import { SearchForm } from 'components/SearchForm/SearchForm';
+import defaultImage from './defaultImage.jpeg';
+
 import {
   ImageGalleryItem,
   ImageGalleryItemImage,
@@ -10,7 +12,6 @@ import {
   ImageGalleryList,
   Title,
 } from 'pages/Home/Home.styled';
-import defaultImage from './defaultImage.jpeg';
 
 export const Movies = () => {
   const [searchMovies, setSearchMovies] = useState([]);

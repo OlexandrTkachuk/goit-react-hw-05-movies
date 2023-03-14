@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getMovieCreditsById } from 'services/themoviedb-api';
 import { useParams } from 'react-router-dom';
-import { isEmpty } from 'lodash';
 import { CastItem, CastWrapper } from './Cast.styled';
 import { ReviewText } from '../Reviews/Reviews.styled';
 import defaultImage from '../../defaultImage.jpeg';
@@ -13,7 +12,7 @@ export const Cast = () => {
   useEffect(() => {
     try {
       getMovieCreditsById(movieId).then(response => {
-        setMovieCast(response.cast.splice(0, 4));
+        setMovieCast(response.cast.splice(0, 8));
       });
     } catch (error) {
       console.log(error);
@@ -22,7 +21,7 @@ export const Cast = () => {
 
   return (
     <>
-      {isEmpty(movieCast) ? (
+      {!movieCast.length ? (
         <ReviewText>
           Sorry! We do not have information about this movie
         </ReviewText>
