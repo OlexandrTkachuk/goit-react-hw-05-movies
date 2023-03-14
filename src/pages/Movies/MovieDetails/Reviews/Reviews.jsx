@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieReviewsById } from 'services/themoviedb-api';
 import { isEmpty } from 'lodash';
+import {
+  ReviewAuthor,
+  ReviewContent,
+  ReviewItem,
+  ReviewText,
+  ReviewWrapper,
+} from './Reviews.styled';
 
 export const Reviews = () => {
   const { movieId } = useParams();
@@ -20,18 +27,18 @@ export const Reviews = () => {
   return (
     <>
       {isEmpty(movieReviews) ? (
-        <p>We don not have any reviews for this movie</p>
+        <ReviewText>We don not have any reviews for this movie</ReviewText>
       ) : (
-        <ul>
+        <ReviewWrapper>
           {movieReviews.map(({ id, author, content }) => {
             return (
-              <li key={id}>
-                <b>{author}</b>
-                <p>{content}</p>
-              </li>
+              <ReviewItem key={id}>
+                <ReviewAuthor>{author}</ReviewAuthor>
+                <ReviewContent>{content}</ReviewContent>
+              </ReviewItem>
             );
           })}
-        </ul>
+        </ReviewWrapper>
       )}
     </>
   );

@@ -8,6 +8,7 @@ import {
   ImageGalleryItemImage,
   ImageGalleryItemTitle,
   ImageGalleryList,
+  Title,
 } from 'pages/Home/Home.styled';
 import defaultImage from './defaultImage.jpeg';
 
@@ -40,23 +41,23 @@ export const Movies = () => {
         <SearchForm onSubmit={handleFormSubmit}></SearchForm>
 
         {searchMovies.length === 0 && query !== '' && (
-          <p
+          <Title
             style={{
               textAlign: 'center',
               fontSize: '30px',
               fontWeight: '700',
             }}
           >
-            The search <span style={{ color: '#a01d1d' }}>{query}</span> did not
-            give results
-          </p>
+            The search <span style={{ color: '#a01d1d' }}>{query} </span>
+            did not give results
+          </Title>
         )}
 
         {searchMovies.length > 0 && (
-          <h1 style={{ textAlign: 'center' }}>
+          <Title style={{ textAlign: 'center' }}>
             Search results for keyword{' '}
-            <span style={{ color: '#a01d1d' }}>{query}</span>:
-          </h1>
+            <span style={{ color: '#a01d1d' }}>{query} </span>:
+          </Title>
         )}
 
         <ImageGalleryList>

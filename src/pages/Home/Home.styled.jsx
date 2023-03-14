@@ -1,15 +1,17 @@
 import styled from '@emotion/styled';
 
 export const Title = styled.h1`
-  width: 400px;
+  display: block;
+  justify-content: center;
   text-align: center;
-  font-size: 24px;
-  letter-spacing: 0.1;
+  font-size: 28px;
   margin: 30px auto;
   background-color: cadetblue;
   border: none;
   border-radius: 20px;
   color: white;
+  padding: 8px 12px;
+  max-width: 600px
 `;
 
 export const ImageGalleryList = styled.ul`
