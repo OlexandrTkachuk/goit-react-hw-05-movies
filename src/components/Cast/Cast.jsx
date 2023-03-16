@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { getMovieCreditsById } from 'services/themoviedb-api';
 import { useParams } from 'react-router-dom';
+import { getMovieCreditsById } from 'services/themoviedb-api';
 import { CastItem, CastWrapper } from './Cast.styled';
 import { ReviewText } from '../Reviews/Reviews.styled';
-import defaultImage from '../../defaultImage.jpeg';
+import defaultImage from './defaultImage.jpeg';
 
-export const Cast = () => {
+const Cast = () => {
   const [movieCast, setMovieCast] = useState([]);
   const { movieId } = useParams();
 
@@ -49,3 +49,5 @@ export const Cast = () => {
     </>
   );
 };
+
+export default Cast;

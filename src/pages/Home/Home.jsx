@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { getTrendMovies } from 'services/themoviedb-api';
-import { Container } from 'components/Container/Container';
 
 import {
   ImageGalleryList,
@@ -11,14 +10,14 @@ import {
   ImageGalleryItemImage,
 } from './Home.styled';
 
-export const Home = () => {
-  const [trandMovies, setTrandMovies] = useState([]);
+const Home = () => {
+  const [trendMovies, setTrendMovies] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
     try {
       getTrendMovies().then(response => {
-        setTrandMovies([...response.results]);
+        setTrendMovies([...response.results]);
       });
     } catch (error) {
       console.log(error);
@@ -26,11 +25,11 @@ export const Home = () => {
   }, []);
 
   return (
-    <Container>
+    <>
       <Title>Trend Movies</Title>
 
       <ImageGalleryList>
-        {trandMovies.map(({ id, poster_path, original_title }) => {
+        {trendMovies.map(({ id, poster_path, original_title }) => {
           return (
             <ImageGalleryItem key={id}>
               <Link to={`movies/${id}`} state={{ from: location }}>
@@ -45,6 +44,8 @@ export const Home = () => {
           );
         })}
       </ImageGalleryList>
-    </Container>
+    </>
   );
 };
+
+export default Home;

@@ -1,10 +1,7 @@
-import { Container } from 'components/Container/Container';
 import { Title } from 'pages/Home/Home.styled';
 
-export const NotFound = () => {
-  return (
-    <Container>
-      <Title>Ooops, something went wrong with navigation!</Title>
-    </Container>
-  );
+const NotFound = () => {
+  return <Title>Ooops, something went wrong with navigation!</Title>;
 };
+
+export default NotFound;

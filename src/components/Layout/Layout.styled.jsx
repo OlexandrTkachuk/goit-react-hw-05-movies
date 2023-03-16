@@ -19,3 +19,10 @@ export const MenuContainer = styled.ul`
 export const MenuItem = styled.li`
   padding: 10px;
 `;
+
+export const Container = styled.div`
+  padding: 0px 30px;
+  margin: 0 auto;
+  background-color: rgb(255, 250, 250);
+  min-height: 100vh;
+`;

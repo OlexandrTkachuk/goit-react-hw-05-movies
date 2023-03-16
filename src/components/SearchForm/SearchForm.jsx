@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import { MdImageSearch } from 'react-icons/md';
+import PropTypes from 'prop-types';
 import {
   Form,
   SearchFormButton,
@@ -19,11 +19,12 @@ export const SearchForm = ({ onSubmit }) => {
     event.preventDefault();
 
     if (inputValue.trim() === '') {
-      toast.error('Search query can`t be empty.');
+      toast.warn('Search query can`t be empty!(');
       return;
     }
 
     onSubmit(inputValue);
+
     setInputValue('');
   };
 
@@ -37,12 +38,12 @@ export const SearchForm = ({ onSubmit }) => {
         </SearchFormButton>
 
         <SearchFormInput
-          onChange={handleInputChange}
-          value={inputValue}
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder="Search films in database"
+          placeholder="Search movies in database"
+          value={inputValue}
+          onChange={handleInputChange}
         />
       </Form>
     </FormWrapper>

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { getMovieDetailsById } from 'services/themoviedb-api';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
+import { isEmpty } from 'lodash';
+import defaultImage from './defaultImage.jpeg';
 import {
   DetailsStyledLink,
   MovieInfoWrapper,
@@ -9,15 +11,12 @@ import {
   SubMenuList,
   SubNavLink,
 } from './MovieDetails.styled';
-import { Container } from 'components/Container/Container';
-import { isEmpty } from 'lodash';
-import defaultImage from '../defaultImage.jpeg';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
-  const goBackRef = useRef(location.state?.from || '/');
+  const goBackHref = useRef(location.state?.from || '/');
 
   useEffect(() => {
     try {
@@ -31,8 +30,9 @@ export const MovieDetails = () => {
 
   const { poster_path, title, release_date, vote_average, overview, genres } =
     movieInfo;
+
   return (
-    <Container>
+    <>
       {!isEmpty(movieInfo) && (
         <>
           <MovieInfoWrapper>
@@ -95,7 +95,9 @@ export const MovieDetails = () => {
         </>
       )}
 
-      <DetailsStyledLink to={goBackRef.current}>Go back</DetailsStyledLink>
-    </Container>
+      <DetailsStyledLink to={goBackHref.current}>Go back</DetailsStyledLink>
+    </>
   );
 };
+
+export default MovieDetails;

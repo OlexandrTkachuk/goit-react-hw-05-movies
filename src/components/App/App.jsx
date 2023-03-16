@@ -1,34 +1,40 @@
+import { Layout } from 'components/Layout/Layout';
 import { Routes, Route } from 'react-router-dom';
-import { Home } from 'pages/Home/Home';
-import { NotFound } from 'pages/NotFound/NotFound';
-import { Header } from 'components/Header/Header';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Movies } from 'pages/Movies/Movies';
-import { MovieDetails } from 'pages/Movies/MovieDetails/MovieDetails';
-import { Cast } from 'pages/Movies/MovieDetails/Cast/Cast';
-import { Reviews } from 'pages/Movies/MovieDetails/Reviews/Reviews';
-import { Suspense } from 'react';
+import Home from 'pages/Home/Home';
+import { lazy, Suspense } from 'react';
+
+// lazy 
+const Movies = lazy(() => import('../../pages/Movies/Movies'));
+const MovieDetails = lazy(() =>
+  import('../../pages/MovieDetails/MovieDetails')
+);
+const Cast = lazy(() => import('../Cast/Cast'));
+const Reviews = lazy(() => import('../Reviews/Reviews'));
+const NotFound = lazy(() => import('../../pages/NotFound/NotFound'));
 
 export const App = () => {
   return (
     <>
       <Suspense>
-        <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
 
-          <Route path="/movies" element={<Movies />} />
+            <Route path="/movies" element={<Movies />} />
 
-          <Route path="/movies/:movieId" element={<MovieDetails />}>
-            <Route path="cast" element={<Cast />} />
-            <Route path="reviews" element={<Reviews />} />
+            <Route path="/movies/:movieId" element={<MovieDetails />}>
+              <Route path="cast" element={<Cast />} />
+              <Route path="reviews" element={<Reviews />} />
+            </Route>
+
+            <Route path="*" element={<NotFound />} />
           </Route>
-
-          <Route path="*" element={<NotFound />} />
         </Routes>
-        <ToastContainer />
       </Suspense>
+
+      <ToastContainer />
     </>
   );
 };

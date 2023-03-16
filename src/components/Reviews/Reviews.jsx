@@ -9,9 +9,9 @@ import {
   ReviewWrapper,
 } from './Reviews.styled';
 
-export const Reviews = () => {
-  const { movieId } = useParams();
+const Reviews = () => {
   const [movieReviews, setMovieReviews] = useState([]);
+  const { movieId } = useParams();
 
   useEffect(() => {
     try {
@@ -26,7 +26,7 @@ export const Reviews = () => {
   return (
     <>
       {!movieReviews.length ? (
-        <ReviewText>We don not have any reviews for this movie</ReviewText>
+        <ReviewText>We dont have any reviews for this movie</ReviewText>
       ) : (
         <ReviewWrapper>
           {movieReviews.map(({ id, author, content }) => {
@@ -42,3 +42,5 @@ export const Reviews = () => {
     </>
   );
 };
+
+export default Reviews;
