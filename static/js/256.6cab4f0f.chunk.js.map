@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/256.6cab4f0f.chunk.js","mappings":"mKAMA,UAJiB,WACf,OAAO,SAAC,KAAD,0DACR,C","sources":["pages/NotFound/NotFound.jsx"],"sourcesContent":["import { Title } from 'pages/Home/Home.styled';\n\nconst NotFound = () => {\n  return <Title>Ooops, something went wrong with navigation!</Title>;\n};\n\nexport default NotFound;\n"],"names":[],"sourceRoot":""}
