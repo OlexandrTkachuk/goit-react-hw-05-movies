@@ -27,7 +27,7 @@ export const Layout = () => {
         <Outlet />
       </main>
 
-      <footer>this footer . . .</footer>
+      <footer></footer>
     </Container>
   );
 };
