@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Home from 'pages/Home/Home';
 import { lazy, Suspense } from 'react';
 
-// lazy 
+// lazy
 const Movies = lazy(() => import('../../pages/Movies/Movies'));
 const MovieDetails = lazy(() =>
   import('../../pages/MovieDetails/MovieDetails')
@@ -17,22 +17,20 @@ const NotFound = lazy(() => import('../../pages/NotFound/NotFound'));
 export const App = () => {
   return (
     <>
-      <Suspense>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
 
-            <Route path="/movies" element={<Movies />} />
+          <Route path="/movies" element={<Movies />} />
 
-            <Route path="/movies/:movieId" element={<MovieDetails />}>
-              <Route path="cast" element={<Cast />} />
-              <Route path="reviews" element={<Reviews />} />
-            </Route>
-
-            <Route path="*" element={<NotFound />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="cast" element={<Cast />} />
+            <Route path="reviews" element={<Reviews />} />
           </Route>
-        </Routes>
-      </Suspense>
+
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
 
       <ToastContainer />
     </>
