@@ -19,13 +19,7 @@ const Movies = () => {
   const location = useLocation();
 
   const handleFormSubmit = inputValue => {
-    // setSearchQuery(inputValue !== '' ? { query: inputValue } : {});
-
-    if (inputValue === '') {
-      return setSearchQuery({});
-    }
-
-    setSearchQuery({ query: inputValue });
+    setSearchQuery(inputValue !== '' ? { query: inputValue } : {});
   };
 
   useEffect(() => {
